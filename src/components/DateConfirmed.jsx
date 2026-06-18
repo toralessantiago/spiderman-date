@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import poster from "../assets/spiderman.jpg";
 import heartLogo from "../assets/logo.svg";
+import entradasPdf from "../assets/entradas.pdf";
 
 export default function DateConfirmed() {
   const targetDate = new Date(2026, 6, 30, 14, 40);
@@ -133,6 +134,24 @@ export default function DateConfirmed() {
             "
           >
             Agendar en calendario
+          </a>
+
+          <a
+            href={entradasPdf}
+            download="Entradas-Spiderman.pdf"
+            className="
+    bg-white/10
+    border border-white/20
+    hover:bg-white/20
+    transition
+    text-white
+    px-4 sm:px-6 py-2 sm:py-3
+    rounded-md
+    text-base sm:text-lg
+    font-semibold
+  "
+          >
+            Descargar entradas
           </a>
         </div>
 
