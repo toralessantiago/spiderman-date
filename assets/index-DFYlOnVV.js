@@ -57,7 +57,7 @@ Error generating stack: `+e.message+`
           mx-4\r
           rounded-lg\r
           shadow-2xl\r
-        `,children:[(0,U.jsx)(`h1`,{className:`text-red-500 text-5xl md:text-6xl font-bold mb-6`,children:`TENEMOS UNA CITA`}),(0,U.jsx)(`p`,{className:`text-white text-xl`,children:`Spider-Man: Brand New Day`}),(0,U.jsx)(`p`,{className:`text-gray-300 mt-1`,children:`Cinemark Terrazas de Mayo`}),(0,U.jsx)(`p`,{className:`text-white mt-4 text-lg`,children:`JUE., 30 JUL · 14:40`}),(0,U.jsxs)(`div`,{className:`flex flex-col md:flex-row justify-center gap-4 mt-8`,children:[(0,U.jsx)(`a`,{href:`https://calendar.google.com/calendar/render?action=TEMPLATE&text=Spider-Man%3A%20Brand%20New%20Day&dates=20260730T144000/20260730T170000&details=Salida%20al%20cine%20-%20Spider-Man%3A%20Brand%20New%20Day&location=Cinemark%20Terrazas%20de%20Mayo`,target:`_blank`,rel:`noreferrer`,className:`\r
+        `,children:[(0,U.jsx)(`h1`,{className:`text-red-500 text-5xl md:text-6xl font-bold mb-6`,children:`TENEMOS UNA CITA`}),(0,U.jsx)(`p`,{className:`text-white mt-6 text-3xl md:text-4xl font-bold tracking-widest drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]`,children:`JUEVES 30 DE JULIO | 14:40`}),(0,U.jsxs)(`div`,{className:`mt-8 space-y-2`,children:[(0,U.jsx)(`p`,{className:`text-white text-xl md:text-2xl font-medium`,children:`Spider-Man: Brand New Day`}),(0,U.jsx)(`p`,{className:`text-gray-300 text-base md:text-lg`,children:`Cinemark Terrazas de Mayo`})]}),(0,U.jsxs)(`div`,{className:`flex justify-center gap-6 text-white mt-10`,children:[(0,U.jsx)(`p`,{className:`text-white mt-4 text-lg`,children:`FALTAN:`}),(0,U.jsxs)(`div`,{children:[(0,U.jsx)(`p`,{className:`text-3xl font-bold`,children:t.days}),(0,U.jsx)(`p`,{className:`text-xs text-gray-400`,children:`Días`})]}),(0,U.jsxs)(`div`,{children:[(0,U.jsx)(`p`,{className:`text-3xl font-bold`,children:t.hours}),(0,U.jsx)(`p`,{className:`text-xs text-gray-400`,children:`Horas`})]}),(0,U.jsxs)(`div`,{children:[(0,U.jsx)(`p`,{className:`text-3xl font-bold`,children:t.minutes}),(0,U.jsx)(`p`,{className:`text-xs text-gray-400`,children:`Min`})]}),(0,U.jsxs)(`div`,{children:[(0,U.jsx)(`p`,{className:`text-3xl font-bold`,children:t.seconds}),(0,U.jsx)(`p`,{className:`text-xs text-gray-400`,children:`Seg`})]})]}),(0,U.jsx)(`div`,{className:`flex flex-col md:flex-row justify-center gap-4 mt-8`,children:(0,U.jsx)(`a`,{href:`https://calendar.google.com/calendar/render?action=TEMPLATE&text=Spider-Man%3A%20Brand%20New%20Day&dates=20260730T144000/20260730T170000&details=Salida%20al%20cine%20-%20Spider-Man%3A%20Brand%20New%20Day&location=Cinemark%20Terrazas%20de%20Mayo`,target:`_blank`,rel:`noreferrer`,className:`\r
               bg-red-600\r
               hover:bg-red-700\r
               transition\r
@@ -66,25 +66,4 @@ Error generating stack: `+e.message+`
               rounded-md\r
               text-lg\r
               font-semibold\r
-            `,children:`Agregar a Google Calendar`}),(0,U.jsx)(`button`,{onClick:()=>{let e=new Blob([`BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//Spider-Man Date//ES
-BEGIN:VEVENT
-UID:spiderman-date
-DTSTAMP:20260101T120000Z
-DTSTART:20260730T144000
-DTEND:20260730T170000
-SUMMARY:Spider-Man: Brand New Day
-DESCRIPTION:Salida al cine - Cinemark Terrazas de Mayo
-LOCATION:Cinemark Terrazas de Mayo
-END:VEVENT
-END:VCALENDAR`],{type:`text/calendar;charset=utf-8`}),t=window.URL.createObjectURL(e),n=document.createElement(`a`);n.href=t,n.download=`spiderman-date.ics`,document.body.appendChild(n),n.click(),document.body.removeChild(n),window.URL.revokeObjectURL(t)},className:`\r
-              bg-gray-200\r
-              hover:bg-gray-300\r
-              transition\r
-              text-black\r
-              px-6 py-3\r
-              rounded-md\r
-              text-lg\r
-              font-semibold\r
-            `,children:`Agregar al calendario`})]}),(0,U.jsxs)(`div`,{className:`flex justify-center gap-6 text-white mt-10`,children:[(0,U.jsxs)(`div`,{children:[(0,U.jsx)(`p`,{className:`text-3xl font-bold`,children:t.days}),(0,U.jsx)(`p`,{className:`text-xs text-gray-400`,children:`Días`})]}),(0,U.jsxs)(`div`,{children:[(0,U.jsx)(`p`,{className:`text-3xl font-bold`,children:t.hours}),(0,U.jsx)(`p`,{className:`text-xs text-gray-400`,children:`Horas`})]}),(0,U.jsxs)(`div`,{children:[(0,U.jsx)(`p`,{className:`text-3xl font-bold`,children:t.minutes}),(0,U.jsx)(`p`,{className:`text-xs text-gray-400`,children:`Min`})]}),(0,U.jsxs)(`div`,{children:[(0,U.jsx)(`p`,{className:`text-3xl font-bold`,children:t.seconds}),(0,U.jsx)(`p`,{className:`text-xs text-gray-400`,children:`Seg`})]})]}),(0,U.jsx)(`p`,{className:`text-gray-400 italic mt-10 text-sm`,children:`Con grandes poderes vienen grandes responsabilidades, y una buena película para compartir.`})]})]})}function Cu(){let[e,t]=(0,b.useState)(!1);return(0,U.jsx)(Ac,{mode:`wait`,children:e?(0,U.jsx)(Su,{},`confirmed`):(0,U.jsx)(xu,{onAccept:()=>t(!0)},`invitation`)})}(0,x.createRoot)(document.getElementById(`root`)).render((0,U.jsx)(b.StrictMode,{children:(0,U.jsx)(Cu,{})}));
+            `,children:`Agendar en calendario`})}),(0,U.jsx)(`p`,{className:`text-gray-400 italic mt-10 text-sm`,children:`Un gran poder lleva una gran responsabilidad, y una hermosa cita con vos.`})]})]})}function Cu(){let[e,t]=(0,b.useState)(!1);return(0,U.jsx)(Ac,{mode:`wait`,children:e?(0,U.jsx)(Su,{},`confirmed`):(0,U.jsx)(xu,{onAccept:()=>t(!0)},`invitation`)})}(0,x.createRoot)(document.getElementById(`root`)).render((0,U.jsx)(b.StrictMode,{children:(0,U.jsx)(Cu,{})}));
