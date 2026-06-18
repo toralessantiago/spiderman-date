@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import poster from "../assets/spiderman.jpg";
 
 export default function DateConfirmed() {
-  const targetDate = new Date(2026, 6, 30, 14, 40); // julio = 6
+  const targetDate = new Date(2026, 6, 30, 14, 40);
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -28,7 +28,6 @@ export default function DateConfirmed() {
     return () => clearInterval(interval);
   }, []);
 
-  // 📅 Google Calendar (FIX: único y reutilizable)
   const googleCalendarUrl =
     "https://calendar.google.com/calendar/render?action=TEMPLATE" +
     "&text=Spider-Man%3A%20Brand%20New%20Day" +
@@ -36,44 +35,8 @@ export default function DateConfirmed() {
     "&details=Salida%20al%20cine%20-%20Spider-Man%3A%20Brand%20New%20Day" +
     "&location=Cinemark%20Terrazas%20de%20Mayo";
 
-  // 📄 ICS download (FIX limpio)
-  const downloadICS = () => {
-    const icsContent = `
-BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//Spider-Man Date//ES
-BEGIN:VEVENT
-UID:spiderman-date
-DTSTAMP:20260101T120000Z
-DTSTART:20260730T144000
-DTEND:20260730T170000
-SUMMARY:Spider-Man: Brand New Day
-DESCRIPTION:Salida al cine - Cinemark Terrazas de Mayo
-LOCATION:Cinemark Terrazas de Mayo
-END:VEVENT
-END:VCALENDAR
-    `.trim();
-
-    const blob = new Blob([icsContent], {
-      type: "text/calendar;charset=utf-8",
-    });
-
-    const url = window.URL.createObjectURL(blob);
-
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "spiderman-date.ics";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-
-    window.URL.revokeObjectURL(url); // FIX memoria
-  };
-
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-
-      {/* Fondo cinematográfico */}
+    <div className="relative min-h-screen overflow-hidden flex items-center justify-center">
       <motion.div
         animate={{ scale: [1, 1.05, 1] }}
         transition={{ duration: 20, repeat: Infinity }}
@@ -81,10 +44,8 @@ END:VCALENDAR
         style={{ backgroundImage: `url(${poster})` }}
       />
 
-      {/* Overlay */}
       <div className="absolute inset-0 bg-black/75" />
 
-      {/* 🎟️ TICKET */}
       <motion.div
         initial={{ opacity: 0, scale: 0.85, y: 40 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -95,37 +56,58 @@ END:VCALENDAR
           border border-white/20
           backdrop-blur-md
           text-center
-          px-8 py-10
-          max-w-2xl
+          px-4 sm:px-6 md:px-8
+          py-6 sm:py-8 md:py-10
+          max-w-[95vw] sm:max-w-lg md:max-w-2xl
           w-full
-          mx-4
+          mx-2
           rounded-lg
           shadow-2xl
         "
       >
-
-        {/* Título */}
-        <h1 className="text-red-500 text-5xl md:text-6xl font-bold mb-6">
+        <h1 className="text-red-500 text-3xl sm:text-5xl md:text-6xl font-bold mb-6">
           TENEMOS UNA CITA
         </h1>
 
-        {/* Info */}
-        <p className="text-white text-xl">
-          Spider-Man: Brand New Day
+        <p className="text-white mt-6 text-xl sm:text-2xl md:text-4xl font-bold tracking-widest drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+          JUEVES 30 DE JULIO | 21:00
         </p>
 
-        <p className="text-gray-300 mt-1">
-          Cinemark Terrazas de Mayo
-        </p>
+        <div className="mt-8 space-y-2">
+          <p className="text-white text-lg sm:text-xl md:text-2xl font-medium">
+            Spider-Man: Brand New Day
+          </p>
 
-        <p className="text-white mt-4 text-lg">
-          JUE., 30 JUL · 14:40
-        </p>
+          <p className="text-gray-300 text-sm sm:text-base md:text-lg">
+            Cinemark Terrazas de Mayo
+          </p>
+        </div>
 
-        {/* BOTONES */}
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-white mt-8">
+          <p className="text-lg">FALTAN:</p>
+
+          <div>
+            <p className="text-2xl sm:text-3xl font-bold">{timeLeft.days}</p>
+            <p className="text-xs text-gray-400">Días</p>
+          </div>
+
+          <div>
+            <p className="text-2xl sm:text-3xl font-bold">{timeLeft.hours}</p>
+            <p className="text-xs text-gray-400">Horas</p>
+          </div>
+
+          <div>
+            <p className="text-2xl sm:text-3xl font-bold">{timeLeft.minutes}</p>
+            <p className="text-xs text-gray-400">Min</p>
+          </div>
+
+          <div>
+            <p className="text-2xl sm:text-3xl font-bold">{timeLeft.seconds}</p>
+            <p className="text-xs text-gray-400">Seg</p>
+          </div>
+        </div>
+
         <div className="flex flex-col md:flex-row justify-center gap-4 mt-8">
-
-          {/* Google Calendar FIX */}
           <a
             href={googleCalendarUrl}
             target="_blank"
@@ -135,63 +117,52 @@ END:VCALENDAR
               hover:bg-red-700
               transition
               text-white
-              px-6 py-3
+              px-4 sm:px-6 py-2 sm:py-3
               rounded-md
-              text-lg
+              text-base sm:text-lg
               font-semibold
             "
           >
-            Agregar a Google Calendar
+            Agendar en calendario
           </a>
+        </div>
 
-          {/* ICS FIX */}
-          <button
-            onClick={downloadICS}
-            className="
-              bg-gray-200
-              hover:bg-gray-300
-              transition
-              text-black
-              px-6 py-3
-              rounded-md
-              text-lg
-              font-semibold
-            "
+        <div className="mt-10 text-gray-400 italic text-xs sm:text-sm leading-relaxed space-y-3 text-center">
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Agregar al calendario
-          </button>
+            Un gran poder lleva una gran responsabilidad, y una hermosa cita con
+            vos.
+          </motion.p>
 
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            Deseo que seas siempre feliz, y que la vida me permita ver películas
+            con vos por siempre.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            Tú eres mi camino... siempre serás mi camino.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="text-white font-medium mt-2"
+          >
+            Te amo para siempre Dafne Azul
+          </motion.p>
         </div>
-
-        {/* CONTADOR */}
-        <div className="flex justify-center gap-6 text-white mt-10">
-          <div>
-            <p className="text-3xl font-bold">{timeLeft.days}</p>
-            <p className="text-xs text-gray-400">Días</p>
-          </div>
-
-          <div>
-            <p className="text-3xl font-bold">{timeLeft.hours}</p>
-            <p className="text-xs text-gray-400">Horas</p>
-          </div>
-
-          <div>
-            <p className="text-3xl font-bold">{timeLeft.minutes}</p>
-            <p className="text-xs text-gray-400">Min</p>
-          </div>
-
-          <div>
-            <p className="text-3xl font-bold">{timeLeft.seconds}</p>
-            <p className="text-xs text-gray-400">Seg</p>
-          </div>
-        </div>
-
-        {/* FRASE FINAL */}
-        <p className="text-gray-400 italic mt-10 text-sm">
-          Con grandes poderes vienen grandes responsabilidades,
-          y una buena película para compartir.
-        </p>
-
       </motion.div>
     </div>
   );

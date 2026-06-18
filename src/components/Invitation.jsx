@@ -9,74 +9,44 @@ export default function Invitation({ onAccept }) {
     "¿Segura?",
     "Pensalo bien.",
     "Peter Parker estaría triste",
-    "Última oportunidad"
+    "Última oportunidad",
   ];
 
   const showMessage = () => {
-    setMessage(
-      messages[Math.floor(Math.random() * messages.length)]
-    );
+    setMessage(messages[Math.floor(Math.random() * messages.length)]);
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden flex items-center justify-center">
-
-      {/* Fondo con zoom cinematográfico */}
+    <div className="relative min-h-screen overflow-hidden flex items-center justify-center px-4">
       <motion.div
-        animate={{
-          scale: [1, 1.05, 1],
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
+        animate={{ scale: [1, 1.05, 1] }}
+        transition={{ duration: 20, repeat: Infinity }}
         className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: `url(${poster})`,
-        }}
+        style={{ backgroundImage: `url(${poster})` }}
       />
 
-      {/* Overlay */}
       <div className="absolute inset-0 bg-black/70" />
 
-      {/* Contenido */}
       <motion.div
-        initial={{
-          opacity: 0,
-          scale: 0.95,
-          y: 30,
-        }}
-        animate={{
-          opacity: 1,
-          scale: 1,
-          y: 0,
-        }}
-        transition={{
-          duration: 0.8,
-        }}
-        className="relative z-10 text-center px-6 max-w-2xl"
+        initial={{ opacity: 0, scale: 0.95, y: 30 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="relative z-10 text-center px-4 sm:px-6 max-w-2xl"
       >
         <h1
           className="
-            text-red-500
-            text-5xl
-            md:text-7xl
-            font-bold
-            mb-8
-            tracking-wide
-          "
+          text-red-500
+          text-4xl sm:text-5xl md:text-7xl
+          font-bold
+          mb-6 sm:mb-8
+        "
         >
-          SPIDER-MAN
+          ¡¡ FELIZ CUMPLEAÑOS MI AMOR !!
         </h1>
 
-        <h2 className="text-white text-3xl md:text-5xl mb-10 leading-tight">
+        <h2 className="text-white text-xl sm:text-3xl md:text-5xl mb-10 leading-tight">
           ¿Querés ver el estreno de
-          <br />
-          <span className="text-white">
-            Brand New Day
-          </span>
-          <br />
+          SPIDERMAN
           conmigo?
         </h2>
 
@@ -89,15 +59,15 @@ export default function Invitation({ onAccept }) {
               transition-all
               duration-300
               text-white
-              px-10
-              py-3
+              px-6 sm:px-10
+              py-2 sm:py-3
               rounded-md
-              text-xl
+              text-lg sm:text-xl
               font-semibold
               shadow-lg
             "
           >
-            Sí
+            Si
           </button>
 
           <button
@@ -108,10 +78,10 @@ export default function Invitation({ onAccept }) {
               transition-all
               duration-300
               text-black
-              px-10
-              py-3
+              px-6 sm:px-10
+              py-2 sm:py-3
               rounded-md
-              text-xl
+              text-lg sm:text-xl
               font-semibold
               shadow-lg
             "
@@ -121,17 +91,8 @@ export default function Invitation({ onAccept }) {
         </div>
 
         {message && (
-          <motion.p
-            key={message}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-            className="text-white text-xl mt-6"
-          >
-            {message}
-          </motion.p>
+          <p className="text-white text-base sm:text-xl mt-6">{message}</p>
         )}
-
       </motion.div>
     </div>
   );

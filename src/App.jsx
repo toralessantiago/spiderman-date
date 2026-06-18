@@ -1,25 +1,28 @@
 import { useState } from "react";
-import { AnimatePresence } from "framer-motion";
-
 import Invitation from "./components/Invitation";
+import EnvelopeIntro from "./components/EnvelopeIntro";
 import DateConfirmed from "./components/DateConfirmed";
 
 function App() {
-  const [accepted, setAccepted] = useState(false);
+  const [step, setStep] = useState("invite");
+  // invite → envelope → confirmed
 
   return (
-    <AnimatePresence mode="wait">
-      {!accepted ? (
+    <>
+      {step === "invite" && (
         <Invitation
-          key="invitation"
-          onAccept={() => setAccepted(true)}
-        />
-      ) : (
-        <DateConfirmed
-          key="confirmed"
+          onAccept={() => setStep("envelope")}
         />
       )}
-    </AnimatePresence>
+
+      {step === "envelope" && (
+        <EnvelopeIntro
+          onOpen={() => setStep("confirmed")}
+        />
+      )}
+
+      {step === "confirmed" && <DateConfirmed />}
+    </>
   );
 }
 
