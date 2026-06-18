@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import poster from "../assets/spiderman.jpg";
+import heartLogo from "../assets/logo.svg";
 
 export default function DateConfirmed() {
   const targetDate = new Date(2026, 6, 30, 14, 40);
@@ -30,11 +31,9 @@ export default function DateConfirmed() {
 
   const googleCalendarUrl =
     "https://calendar.google.com/calendar/render?action=TEMPLATE" +
-    "&text=Spider-Man%3A%20Brand%20New%20Day" +
+    "&text=Cita%20con%20el%20amor%20de%20mi%20vida%20para%20ver%20Spiderman%E2%9D%A4%EF%B8%8F%F0%9F%95%B7" +
     "&dates=20260730T144000/20260730T170000" +
-    "&details=Salida%20al%20cine%20-%20Spider-Man%3A%20Brand%20New%20Day" +
     "&location=Cinemark%20Terrazas%20de%20Mayo";
-
   return (
     <div className="relative min-h-screen overflow-hidden flex items-center justify-center">
       <motion.div
@@ -65,8 +64,18 @@ export default function DateConfirmed() {
           shadow-2xl
         "
       >
-        <h1 className="text-red-500 text-3xl sm:text-5xl md:text-6xl font-bold mb-6">
+        <h1 className="text-red-500 text-3xl sm:text-5xl md:text-6xl font-bold mb-6 flex items-center justify-center gap-2">
+          <img
+            src={heartLogo}
+            alt="heart"
+            className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 object-contain"
+          />
           TENEMOS UNA CITA
+          <img
+            src={heartLogo}
+            alt="heart"
+            className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 object-contain"
+          />
         </h1>
 
         <p className="text-white mt-6 text-xl sm:text-2xl md:text-4xl font-bold tracking-widest drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
@@ -160,7 +169,7 @@ export default function DateConfirmed() {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="text-white font-medium mt-2"
           >
-            Te amo para siempre Dafne Azul
+            Te amo para siempre Dafne Azul{" "}
           </motion.p>
         </div>
       </motion.div>
