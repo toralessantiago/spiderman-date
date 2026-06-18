@@ -167,9 +167,17 @@ export default function DateConfirmed() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="text-white font-medium mt-2"
+            className="flex items-center justify-center mt-2"
           >
-            Te amo para siempre Dafne Azul{" "}
+            <p className="text-white font-medium">
+              Te amo para siempre Dafne Azul
+            </p>
+
+            <img
+              src={heartLogo}
+              alt="heart"
+              className="w-4 h-4 sm:w-5 sm:h-5 object-contain ml-2"
+            />
           </motion.p>
         </div>
       </motion.div>
