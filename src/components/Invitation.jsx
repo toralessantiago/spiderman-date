@@ -7,8 +7,8 @@ export default function Invitation({ onAccept }) {
 
   const messages = [
     "¿Segura?",
-    "Pensalo bien.",
-    "Peter Parker estaría triste",
+    "Pensalo bien",
+    "Peter Parker estaría triste :(",
     "Última oportunidad",
   ];
 

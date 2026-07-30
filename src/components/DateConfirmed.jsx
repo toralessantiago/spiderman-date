@@ -5,7 +5,7 @@ import heartLogo from "../assets/logo.svg";
 import entradasPdf from "../assets/entradas.pdf";
 
 export default function DateConfirmed() {
-  const targetDate = new Date(2026, 6, 30, 14, 40);
+  const targetDate = new Date(2026, 6, 30, 21, 0);
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -33,7 +33,7 @@ export default function DateConfirmed() {
   const googleCalendarUrl =
     "https://calendar.google.com/calendar/render?action=TEMPLATE" +
     "&text=Cita%20con%20el%20amor%20de%20mi%20vida%20para%20ver%20Spiderman%E2%9D%A4%EF%B8%8F%F0%9F%95%B7" +
-    "&dates=20260730T144000/20260730T170000" +
+    "&dates=20260730T210000/20260730T230000" +
     "&location=Cinemark%20Terrazas%20de%20Mayo";
   return (
     <div className="relative min-h-screen overflow-hidden flex items-center justify-center">
